@@ -23,7 +23,7 @@ figure, plot(mic_sig,'g');
 %% Define the input parameters and call the adaptive function to process the data
 filterlength = 800; % equivalent of 50 ms in time (at new sample rate Fs=16kHz). This length seems suitable given the acoustic characteristics of the truck cabin. 
 farend_activity_thresh = 1e-4; % This corresponds to -80 dB FS. Used as the definition of 'silence' in the far end signal.
-correlation_thresh = 1e-8; % if the cross correlation between far end and mic signal is less than 10^-8 then we assume they are uncorrelated.
+correlation_thresh = 1.1e-4; % if the cross correlation between far end and mic signal is less than this threshold then we assume they are uncorrelated.
 
 tic, % calculate the execution time: start the timer!
 [out,w,ru] = NLMS_AcousticEchoCanceller(ref_sig, mic_sig, filterlength, farend_activity_thresh, correlation_thresh);
