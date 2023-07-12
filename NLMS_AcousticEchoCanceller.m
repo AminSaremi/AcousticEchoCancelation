@@ -45,7 +45,7 @@ for n = filterlength : totallength
         d_norm=d-D;
         var_u=u_norm'*u_norm;
     
-        ru(n)=(u_norm'*d_norm)^2/(var_u*(d_norm'*d_norm));
+        ru(n)=sqrt((u_norm'*d_norm)^2/(var_u*(d_norm'*d_norm))); 
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
         if ru(n)<= correlation_thresh % The near end is talking too (Double talk is detected). Do not adapt. 
